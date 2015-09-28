@@ -3,7 +3,7 @@ from mt import app
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Hello World! Awesome!!!'
+    return 'Hello World! My name is Yueyang Jiang!'
 
 
 @app.errorhandler(404)
