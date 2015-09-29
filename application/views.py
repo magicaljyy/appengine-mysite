@@ -19,7 +19,7 @@ from application import app
 from decorators import login_required, admin_required
 from forms import ExampleForm
 from models import ExampleModel
-
+import dota2api
 
 # Flask-Cache (configured to use App Engine Memcache API)
 cache = Cache(app)
@@ -83,6 +83,11 @@ def delete_example(example_id):
             flash(u'App Engine Datastore is currently in read-only mode.', 'info')
             return redirect(url_for('list_examples'))
 
+@login_required
+def get_dota_record(account_id):
+    api = dota2api.Initialise("4071DAA91D8719B6D7C0EA6DF5DF413E")
+    hist = api.get_match_history(account_id)
+    return hist
 
 @admin_required
 def admin_only():
