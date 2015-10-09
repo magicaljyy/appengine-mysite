@@ -90,6 +90,10 @@ def get_dota_record(account_id):
     hist = api.get_match_history(account_id)
     return hist
 
+@login_required
+def react():
+    return render_template('react.html')
+
 @admin_required
 def admin_only():
     """This view requires an admin account"""

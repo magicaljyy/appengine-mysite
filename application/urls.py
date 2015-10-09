@@ -39,6 +39,8 @@ app.add_url_rule('/examples/<int:example_id>/delete', view_func=views.delete_exa
 # test
 app.add_url_rule('/dota/<int:account_id>', view_func=views.get_dota_record, methods=['GET', 'POST'])
 
+#react
+app.add_url_rule('/react', view_func=views.react, methods=['GET', 'POST'])
 
 ## Error handlers
 # Handle 404 errors
