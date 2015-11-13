@@ -20,7 +20,7 @@ from decorators import login_required, admin_required
 from forms import ExampleForm
 from models import ExampleModel
 
-import dota2api
+from dota2.client import Client
 
 # Flask-Cache (configured to use App Engine Memcache API)
 cache = Cache(app)
@@ -86,9 +86,9 @@ def delete_example(example_id):
 
 @login_required
 def get_dota_record(account_id):
-    api = dota2api.Initialise("4071DAA91D8719B6D7C0EA6DF5DF413E")
-    hist = api.get_match_history(account_id)
-    return hist
+    client = Client(app.config['DOTA_API_KEY'])
+    hist = client.getHistory({'account_id':account_id})
+    return hist.content
 
 @login_required
 def react():

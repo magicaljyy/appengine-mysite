@@ -7,8 +7,7 @@ Important: Place your keys in the secret_keys.py module,
            which should be kept out of version control.
 
 """
-from secret_keys import CSRF_SECRET_KEY, SESSION_KEY
-
+from secret_keys import CSRF_SECRET_KEY, SESSION_KEY, DOTA_API_KEY
 
 class Config(object):
     # Set secret keys for CSRF protection
@@ -16,7 +15,7 @@ class Config(object):
     CSRF_SESSION_KEY = SESSION_KEY
     # Flask-Cache settings
     CACHE_TYPE = 'gaememcached'
-
+    DOTA_API_KEY = DOTA_API_KEY
 
 class Development(Config):
     DEBUG = True
