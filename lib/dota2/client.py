@@ -13,4 +13,7 @@ class Client:
     return Request.get(url, params)
     
   def getHistory(self, params={}):
-    return self.sendRequest('IDOTA2Match_570', 'v0001', 'GetMatchHistory', params)
+    return self.sendRequest('IDOTA2Match_570', 'v1', 'GetMatchHistory', params)
+  
+  def getHeroes(self, params={}):
+    return self.sendRequest('IEconDOTA2_570', 'v1', 'GetHeroes', params)

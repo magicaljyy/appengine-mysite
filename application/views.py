@@ -87,8 +87,8 @@ def delete_example(example_id):
 @login_required
 def get_dota_record(account_id):
     client = Client(app.config['DOTA_API_KEY'])
-    hist = client.getHistory({'account_id':account_id})
-    return hist.content
+    history = client.getHistory({'account_id':account_id})
+    return history.content
 
 @login_required
 def react():
